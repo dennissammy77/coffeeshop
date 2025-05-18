@@ -35,8 +35,35 @@ def test_customers():
     customer1 = Customer("Alex")
     coffee1 = Coffee("Espresso")
     coffee2 = Coffee("Cappucino")
-    order1 = Order(customer, coffee1, 10.12)
-    order2 = Order(customer1, coffee2, 10.12)
-    order3 = Order(customer, coffee2, 10.12)
+    Order(customer, coffee1, 10.12)
+    Order(customer1, coffee2, 10.12)
+    Order(customer, coffee2, 10.12)
     
     assert sorted(coffee2.customers()) == sorted([customer.name, customer1.name])
+
+def test_num_orders_returns_total_orders_for_coffee():
+    Order.all = []
+    """Test that num_orders method returns the correct total number of orders for a given Coffee instance."""
+    customer = Customer("Dennis")
+    customer1 = Customer("Alex")
+    coffee1 = Coffee("Espresso")
+    coffee2 = Coffee("Cappucino")
+    Order(customer, coffee1, 10.12)
+    Order(customer1, coffee2, 10.12)
+    Order(customer, coffee2, 10.12)
+    Order(customer1, coffee1, 10.12)
+    Order(customer, coffee1, 10.12)
+
+    assert coffee2.num_orders() == 2
+    assert coffee1.num_orders() == 3
+
+def test_average_price_returns_correct_average_for_coffee():
+    Order.all = []
+    """Test that average_price method returns the correct average price of all orders for a given Coffee instance."""
+
+    customer = Customer("Dennis")
+    coffee2 = Coffee("Cappucino")
+    Order(customer, coffee2, 10.12)
+    Order(customer, coffee2, 10.12)
+
+    assert coffee2.average_price() == 10.12
