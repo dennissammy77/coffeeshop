@@ -11,6 +11,6 @@ def test_order_init():
     coffee = Coffee("Cappucino")
     order = Order(customer, coffee, 10.12)
 
-    assert order._customer == customer
-    assert order._coffee == coffee
-    assert order._price == 10.12
+    assert order.customer.name == "Dennis"
+    assert order.coffee.name == "Cappucino"
+    assert order.price == 10.12
