@@ -14,9 +14,9 @@ class Coffee:
             raise Exception
         self._name = value
 
-    def orders(self,name):
+    def orders(self):
         from .order import Order
-        return [order for order in Order.all if order.coffee.name == name]
+        return [order for order in Order.all if order.coffee.name == self.name]
 
     def customers(self):
         from .order import Order

@@ -21,12 +21,12 @@ def test_coffee_name_length():
 
 def test_orders():
     Order.all = []
-    """Test orders method returns a list of all orders for that customer. """
+    """Test orders method returns a list of all orders for that coffee. """
     customer = Customer("Dennis")
     coffee = Coffee("Cappucino")
     order = Order(customer, coffee, 10.12)
     
-    assert coffee.orders("Cappucino") == [order]
+    assert coffee.orders() == [order]
 
 def test_customers():
     Order.all = []
