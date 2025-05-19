@@ -15,3 +15,13 @@ Order: belongs to one Customer, one Coffee
 ```bash
     pipenv install pytest
 ```
+
+# Running the project
+- To test the project run 
+```bash
+    pytest
+```
+- to Run the project 
+```bash
+    python debug.py
+```

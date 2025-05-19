@@ -27,7 +27,7 @@ def test_orders():
     coffee = Coffee("Cappucino")
     order = Order(customer, coffee, 10.12)
     
-    assert customer.orders("Dennis") == [order]
+    assert customer.orders() == [order]
 
 def test_coffees():
     Order.all = []
@@ -53,7 +53,6 @@ def test_create_order():
 
 def test_most_aficionado_returns_customer_who_spent_most_on_coffee():
     Order.all = []
-    Customer.all = []
     """Test that most_aficionado method returns the Customer who spent the most money on a given Coffee instance,
     and returns None if no orders exist for that coffee."""
     customer = Customer("Dennis")
